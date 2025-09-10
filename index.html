@@ -3,105 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TOMO Zoom DeepLink Demo</title>
+  <title>TOMO Zoom Deeplink Test</title>
+  <meta name="description" content="Gen & test TOMO Zoom app deeplink cực nhanh, giao diện đẹp, chuẩn mobile.">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/167/167750.png" type="image/png">
   <style>
     body {
+      min-height: 100vh;
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #53a6fa 0%, #ff8882 100%);
-      min-height: 100vh;
+      background: linear-gradient(135deg, #6edffc 0%, #53a6fa 40%, #ff97b7 95%);
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
     .container {
-      background: rgba(255,255,255,0.94);
-      border-radius: 20px;
-      box-shadow: 0 4px 32px rgba(60,60,60,0.12);
-      padding: 32px 24px;
-      max-width: 360px;
-      margin: 16px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 24px;
+      box-shadow: 0 8px 40px 2px rgba(30,60,120,0.13), 0 2px 8px 0 rgba(90,44,133,0.04);
+      padding: 40px 28px 36px 28px;
+      max-width: 400px;
+      width: 94vw;
+      margin: 20px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     h1 {
       color: #337ccf;
-      margin-bottom: 12px;
-      font-size: 2rem;
+      margin-bottom: 10px;
+      font-size: 2.2rem;
       font-weight: bold;
       text-align: center;
       letter-spacing: 1px;
     }
     .subtitle {
       color: #fa5656;
-      font-size: 1.1rem;
+      font-size: 1.06rem;
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+      font-weight: 500;
     }
-    .meeting-info {
-      background: #f0f6ff;
-      padding: 16px;
-      border-radius: 12px;
-      margin-bottom: 24px;
-      width: 100%;
-      box-sizing: border-box;
-      color: #337ccf;
-      font-size: 1.02rem;
-      box-shadow: 0 2px 10px #e2ebfa;
-    }
-    .btn-deeplink {
+    label {
       display: block;
+      color: #337ccf;
+      font-size: 1.05rem;
+      margin-bottom: 7px;
+      font-weight: 600;
+      margin-top: 8px;
       width: 100%;
-      padding: 16px 0;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 15px 11px;
+      border: 1.6px solid #62aaff;
+      border-radius: 10px;
+      font-size: 1.07rem;
+      outline: none;
+      margin-bottom: 10px;
+      transition: border-color 0.2s;
+      background: #f7fafe;
+    }
+    input[type="text"]:focus {
+      border-color: #fa5656;
+      background: #f3f9ff;
+    }
+    .btn-convert {
+      width: 100%;
+      padding: 15px 0;
       background: linear-gradient(90deg, #337ccf, #fa5656);
       color: #fff;
       border: none;
       border-radius: 999px;
-      font-size: 1.15rem;
+      font-size: 1.23rem;
       font-weight: bold;
-      box-shadow: 0 2px 16px #e2ebfa;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
+      margin-bottom: 23px;
       cursor: pointer;
-      transition: background 0.25s;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 16px #e2ebfa;
+      transition: background 0.19s;
+      outline: none;
+      border-bottom: 2.2px solid #162d47;
     }
-    .btn-deeplink:active {
+    .btn-convert:active {
       background: linear-gradient(90deg, #fa5656, #337ccf);
     }
-    .brand {
-      margin-top: 24px;
-      color: #aaa;
-      font-size: 0.98rem;
-      letter-spacing: 0.5px;
-      text-align: center;
+    .deep-link-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin-bottom: 14px;
     }
-    @media (max-width: 400px) {
-      .container { padding: 18px 8px; }
+    .deeplink-label {
+      color: #40b483;
+      font-weight: 600;
+      font-size: 1.04rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .deeplink-url {
+      background: #e4f5ff;
+      border-radius: 11px;
+      border: 1.3px solid #5eadfa;
+      padding: 12px 14px;
+      font-size: 1.06rem;
+      margin-bottom: 12px;
+      color: #234369;
+      word-break: break-all;
+      text-align: left;
+      letter-spacing: 0.5px;
+      font-family: 'Menlo', 'Roboto Mono', monospace;
+    }
+    .btn-deeplink {
+      width: 100%;
+      padding: 16px 16px;
+      background: linear-gradient(90deg, #22d1d2, #ed5881);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      font-size: 1.14rem;
+      font-weight: bold;
+      margin-bottom: 0;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 13px #c0e6f3;
+      cursor: pointer;
+      transition: background 0.21s;
+      outline: none;
+      border-bottom: 2px solid #186872;
+    }
+    .btn-deeplink:active {
+      background: linear-gradient(90deg, #ed5881, #22d1d2);
+    }
+    a {
+      text-decoration: none !important; /* Không gạch dưới cho nút */
+      display: block;
+      width: 100%;
+    }
+    .brand {
+      margin-top: 22px;
+      color: #bbb;
+      font-size: 1.01rem;
+      letter-spacing: 0.4px;
+      text-align: center;
+      opacity: 0.96;
+      font-weight: 500;
+    }
+    @media (max-width: 460px) {
+      .container { padding: 18px 4vw; }
+      h1 { font-size: 1.45rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>TOMO Zoom Join</h1>
+    <h1>TOMO Zoom Join Tester</h1>
     <div class="subtitle">
-      Nhấn vào nút bên dưới để mở cuộc họp trên app TOMO
+      Nhập link Zoom Meeting bất kỳ, sinh deeplink cực nhanh để test<br>
+      <strong>Mở app trực tiếp trên điện thoại của bạn!</strong>
     </div>
-    <div class="meeting-info">
-      <strong>Meeting ID:</strong> 73141350095<br>
-      <strong>Password:</strong> REIX3KMBuP58DgrMbDHKDHyNyaQN4w.1
-    </div>
-    <a href="tomozoom://join/73141350095?pwd=REIX3KMBuP58DgrMbDHKDHyNyaQN4w.1">
-      <button class="btn-deeplink">
-        THAM GIA CUỘC HỌP
-      </button>
-    </a>
+    <label for="zoom-link">Zoom Meeting Link:</label>
+    <input id="zoom-link" type="text" placeholder="Dán link Zoom Meeting vào đây..." autocomplete="off" spellcheck="false">
+    <button class="btn-convert" onclick="makeDeeplink()">TẠO DEEPLINK & HIỆN NÚT JOIN</button>
+    <div id="deeplink-result" style="width:100%"></div>
     <div class="brand">
-      &copy; 2025 TOMO Team<br>
-      <span style="color:#fa5656">Deeplink Demo</span>
+      &copy; 2025 TOMO Team. | <span style="color:#fa5656">Professional Deeplink Demo</span>
     </div>
   </div>
+  <script>
+    function extractMeetingIdAndPwd(url) {
+      try {
+        const u = new URL(url);
+        const match = u.pathname.match(/\/j\/(\d+)/);
+        const meetingId = match ? match[1] : "";
+        const pwd = u.searchParams.get("pwd") || "";
+        return [meetingId, pwd];
+      } catch {
+        return ["", ""];
+      }
+    }
+    function makeDeeplink() {
+      const input = document.getElementById("zoom-link");
+      const resDiv = document.getElementById("deeplink-result");
+      resDiv.innerHTML = "";
+      const url = input.value.trim();
+      if(!url || !url.startsWith("http")) {
+        resDiv.innerHTML = "<div style='color:#fa5656;font-weight:500;'>Vui lòng nhập đúng link Zoom!</div>";
+        return;
+      }
+      const [id, pwd] = extractMeetingIdAndPwd(url);
+      if (!id) {
+        resDiv.innerHTML = "<div style='color:#fa5656;font-weight:500;'>Không nhận diện được Meeting ID!</div>";
+        return;
+      }
+      const deeplink = `tomozoom://join/${id}${pwd ? `?pwd=${encodeURIComponent(pwd)}` : ""}`;
+      resDiv.innerHTML =
+        `<div class="deep-link-box">
+            <span class="deeplink-label">Deeplink sinh ra:</span>
+            <div class="deeplink-url">${deeplink}</div>
+            <a href="${deeplink}" style="text-decoration:none;display:block;">
+              <button class="btn-deeplink">MỞ APP & THAM GIA CUỘC HỌP</button>
+            </a>
+        </div>`;
+    }
+    // Enter để không phải bấm chuột
+    document.getElementById("zoom-link").addEventListener("keyup", function(event){
+        if(event.key === "Enter") makeDeeplink();
+    });
+  </script>
 </body>
 </html>
