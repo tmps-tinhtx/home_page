@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOMO Zoom DeepLink Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #53a6fa 0%, #ff8882 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: rgba(255,255,255,0.94);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(60,60,60,0.12);
+      padding: 32px 24px;
+      max-width: 360px;
+      margin: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #337ccf;
+      margin-bottom: 12px;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      color: #fa5656;
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .meeting-info {
+      background: #f0f6ff;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      width: 100%;
+      box-sizing: border-box;
+      color: #337ccf;
+      font-size: 1.02rem;
+      box-shadow: 0 2px 10px #e2ebfa;
+    }
+    .btn-deeplink {
+      display: block;
+      width: 100%;
+      padding: 16px 0;
+      background: linear-gradient(90deg, #337ccf, #fa5656);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      box-shadow: 0 2px 16px #e2ebfa;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .btn-deeplink:active {
+      background: linear-gradient(90deg, #fa5656, #337ccf);
+    }
+    .brand {
+      margin-top: 24px;
+      color: #aaa;
+      font-size: 0.98rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    @media (max-width: 400px) {
+      .container { padding: 18px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TOMO Zoom Join</h1>
+    <div class="subtitle">
+      Nhấn vào nút bên dưới để mở cuộc họp trên app TOMO
+    </div>
+    <div class="meeting-info">
+      <strong>Meeting ID:</strong> 73141350095<br>
+      <strong>Password:</strong> REIX3KMBuP58DgrMbDHKDHyNyaQN4w.1
+    </div>
+    <a href="tomozoom://join/73141350095?pwd=REIX3KMBuP58DgrMbDHKDHyNyaQN4w.1">
+      <button class="btn-deeplink">
+        MỞ APP & THAM GIA CUỘC HỌP
+      </button>
+    </a>
+    <div class="brand">
+      &copy; 2025 TOMO Team<br>
+      <span style="color:#fa5656">Deeplink Demo</span>
+    </div>
+  </div>
+</body>
+</html>
